@@ -32,7 +32,7 @@
               text-gray-700
               transition-colors
               duration-200
-              hover:text-deep-purple-accent-400
+              hover:text-hv-green-500
             "
             >HotSpots</nuxt-link
           >
@@ -48,7 +48,7 @@
               text-gray-700
               transition-colors
               duration-200
-              hover:text-deep-purple-accent-400
+              hover:text-hv-green-500
             "
             >Classifieds</nuxt-link
           >
@@ -64,13 +64,13 @@
               text-gray-700
               transition-colors
               duration-200
-              hover:text-deep-purple-accent-400
+              hover:text-hv-green-500
             "
             >Pricing</nuxt-link
           >
         </li>
       </ul>
-      <ul class="flex items-center hidden space-x-8 lg:flex">
+      <ul class="flex items-center hidden space-x-2 lg:flex">
         <li>
           <nuxt-link
             to="/auth/register"
@@ -78,17 +78,17 @@
               inline-flex
               items-center
               justify-center
-              h-12
-              px-6
+              py-2
+              px-4
               font-medium
               tracking-wide
               text-white
               transition
               duration-200
               rounded
-              shadow-md
-              bg-deep-purple-accent-400
-              hover:bg-deep-purple-accent-700
+              shadow-sm
+              bg-hv-green-500
+              hover:bg-hv-green-800
               focus:shadow-outline focus:outline-none
             "
             aria-label="Register"
@@ -104,17 +104,17 @@
               inline-flex
               items-center
               justify-center
-              h-12
-              px-6
+              py-2
+              px-4
+              shadow-sm
               font-medium
               tracking-wide
-              text-white
               transition
               duration-200
               rounded
-              shadow-md
-              bg-deep-purple-accent-400
-              hover:bg-deep-purple-accent-700
+              border
+              text-hv-green-500
+              hover:text-hv-green-800
               focus:shadow-outline focus:outline-none
             "
             aria-label="Login"
@@ -206,7 +206,7 @@
                       text-gray-700
                       transition-colors
                       duration-200
-                      hover:text-deep-purple-accent-400
+                      hover:text-hv-green-500
                     "
                     >Product</a
                   >
@@ -222,7 +222,7 @@
                       text-gray-700
                       transition-colors
                       duration-200
-                      hover:text-deep-purple-accent-400
+                      hover:text-hv-green-500
                     "
                     >Features</a
                   >
@@ -238,7 +238,7 @@
                       text-gray-700
                       transition-colors
                       duration-200
-                      hover:text-deep-purple-accent-400
+                      hover:text-hv-green-500
                     "
                     >Pricing</a
                   >
@@ -254,7 +254,7 @@
                       text-gray-700
                       transition-colors
                       duration-200
-                      hover:text-deep-purple-accent-400
+                      hover:text-hv-green-500
                     "
                     >About us</a
                   >
@@ -276,7 +276,7 @@
                       duration-200
                       rounded
                       shadow-md
-                      bg-deep-purple-accent-400
+                      bg-hv-green-500
                       hover:bg-deep-purple-accent-700
                       focus:shadow-outline focus:outline-none
                     "

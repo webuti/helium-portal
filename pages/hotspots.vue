@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="text-deep-purple-accent-400 py-2 text-md">
+    <h2 class="text-hv-green-500 py-2 text-md">
       Last added hotspots
     </h2>
 

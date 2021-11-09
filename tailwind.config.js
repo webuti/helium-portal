@@ -2,6 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   theme: {
     extend: {
+      sans: ['Inter', 'sans-serif'],
       colors: {
         red: {
           50: '#ffebee',
@@ -295,6 +296,46 @@ module.exports = {
           800: '#4e342e',
           900: '#3e2723',
         },
+        'hv-red': {
+          500: '#FF625A',
+          600: '#401c2b',
+          700: '#752e49',
+          800: '#E43B70',
+          900: '#1f161d',
+        },
+        'hv-green': {
+          500: '#20DEB0',
+          800: '#13413e',
+          900: '#162822',
+        },
+        'hv-blue': {
+          500: '#474DFF',
+          700: '#009FF9',
+        },
+        'hv-turquoise': {
+          700: '#124b4b',
+        },
+        'hv-purple': {
+          500: '#B14FFF',
+        },
+        'hv-gray': {
+          200: '#737373',
+          300: '#b4b4b4',
+          350: '#666666',
+          375: '#606060',
+          400: '#535353',
+          450: '#434343',
+          475: '#404040',
+          500: '#343434',
+          550: '#3f3f3f',
+          700: '#131419',
+          750: '#272727',
+          775: '#2d2d2d',
+          800: '#2E303B',
+          900: '#131419',
+          1000: '#1D1D1D',
+          1100: '#0D0D0D',
+        },
       },
       spacing: {
         7: '1.75rem',
@@ -314,6 +355,7 @@ module.exports = {
       },
     },
   },
+
   variants: {
     scale: ['responsive', 'hover', 'focus', 'group-hover'],
     textColor: ['responsive', 'hover', 'focus', 'group-hover'],

@@ -1,5 +1,5 @@
 <template>
-  <section class="text-blueGray-700">
+  <section class="text-hv-gray-500">
     <div class="container items-center px-5 py-12 lg:px-20">
       <div
         class="
@@ -155,9 +155,9 @@
                     duration-500
                     ease-in-out
                     transform
-                    bg-deep-purple-accent-400
+                    bg-hv-green-500
                     rounded-xl
-                    hover:bg-blue-500
+                    hover:bg-hv-green-800
                     focus:outline-none
                     focus:ring-2
                     focus:ring-offset-2

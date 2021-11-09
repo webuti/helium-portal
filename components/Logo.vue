@@ -1,7 +1,7 @@
 <template>
-  <div class="inline-flex items-center">
+  <nuxt-link to="/" class="inline-flex text-hv-green-500 items-center">
     <svg
-      class="w-8 text-deep-purple-accent-400"
+      class="w-8 "
       viewBox="0 0 24 24"
       stroke-linejoin="round"
       stroke-width="2"
@@ -14,15 +14,14 @@
       <rect x="3" y="17" width="7" height="6"></rect>
       <rect x="14" y="11" width="7" height="12"></rect>
     </svg>
-    <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase"
+    <span class="ml-2 text-xl font-medium tracking-wide text-hv-gray-500 uppercase"
       >HELIUM PORTAL</span
     >
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
 export default {}
 </script>
 
-<style>
-</style>
+<style></style>

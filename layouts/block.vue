@@ -12,7 +12,6 @@
         lg:px-8
       "
     >
-      <Logo />
       <Nuxt />
     </div>
   </div>

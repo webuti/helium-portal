@@ -20,7 +20,7 @@
       >
         <Logo />
       </a>
-      <ul class="flex items-center hidden space-x-8 lg:flex">
+      <ul class="items-center hidden space-x-8 lg:flex">
         <li>
           <nuxt-link
             to="/hotspots"
@@ -70,7 +70,7 @@
           >
         </li>
       </ul>
-      <ul class="flex items-center hidden space-x-2 lg:flex">
+      <ul class="items-center hidden space-x-2 lg:flex">
         <li>
           <nuxt-link
             to="/auth/register"

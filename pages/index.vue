@@ -41,17 +41,19 @@
           </div>
 
           <div class="block my-5">
-            <a href="https://t.me/HeliumReward_bot" target="_blank">
-              <telegram />
+            <a
+              :href="
+                'https://t.me/HeliumPortal_bot?start=' + activehotspot.address
+              "
+              target="_blank"
+            >
+              <div
+                class="border flex items-center space-x-4 w-full shadow-sm p-2"
+              >
+                <div><telegram /></div>
+                <div>Validate start click here</div>
+              </div>
             </a>
-
-            <label class="block">Telegram code</label>
-            <input
-              v-model="telegramcode"
-              type="text"
-              disabled
-              class="border w-full shadow-sm p-2"
-            />
           </div>
         </div>
 
@@ -161,11 +163,16 @@ export default {
     }
   },
   methods: {
+    activeHotSpotSet(hotspot) {
+      this.activehotspot = hotspot
+      this.activehotspot
+    },
     kucult: function (value) {
       if (!value) return ''
       return value.toString().toLowerCase()
     },
   },
+  created() {},
   watch: {
     name: function (val) {
       this.activehotspot = false

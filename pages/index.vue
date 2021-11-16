@@ -1,9 +1,9 @@
 <template>
   <div>
     <form class="">
-      <h2 class="mb-5 text-4xl text-hv-green-800">Helium Portal</h2>
+      <Logo />
 
-      <div class="block mb-5">
+      <div class="block my-5">
         <label class="block">Name</label>
         <input
           v-model="name"
@@ -26,7 +26,6 @@
                     items-center
                     justify-start
                     mr-1.5
-                    w-3
                     h-auto
                   "
                 >

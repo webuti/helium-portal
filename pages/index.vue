@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="">
+    <form @submit.prevent="getData()">
       <Logo />
 
       <div class="block my-5">
@@ -112,30 +112,6 @@
           </div>
         </div>
       </div>
-
-      <button
-        v-if="activehotspot"
-        class="
-          inline-flex
-          items-center
-          justify-center
-          mt-6
-          py-2
-          px-4
-          shadow-sm
-          font-medium
-          tracking-wide
-          transition
-          duration-200
-          rounded
-          text-white
-          border
-          bg-hv-green-500
-          focus:shadow-outline focus:outline-none
-        "
-      >
-        Save
-      </button>
     </form>
   </div>
 </template>
@@ -162,6 +138,18 @@ export default {
     }
   },
   methods: {
+    getData() {
+      if (this.name) {
+        this.$axios
+          .get(
+            'https://helium-api.stakejoy.com/v1/hotspots/name?search=' +
+              this.name
+          )
+          .then((e) => {
+            this.hotspots = e.data.data
+          })
+      }
+    },
     activeHotSpotSet(hotspot) {
       this.activehotspot = hotspot
       this.activehotspot

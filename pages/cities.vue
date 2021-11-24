@@ -1,23 +1,23 @@
 <template>
   <div>
     <div>
-      <div v-if="results[0]" class="p-2">
-        {{ results[0].geocode.short_city }} hotspot count : {{ results.length }}
-      </div>
       <div class="flex text-xs hover:bg-yellow-50">
         <span class="flex-1 p-2">NAME</span>
-        <span class="p-2 w-32 text-center">CONTACT STATUS</span>
-        <span class="p-2 w-32 text-center">SALES STATUS</span>
-        <span class="p-2 w-32 text-center">30D REWARDS</span>
+        <span class="p-2 w-32 text-center">ONLINE COUNT</span>
+        <span class="p-2 w-32 text-center">OFFLINE COUNT</span>
       </div>
+
       <div
         class="hotspots border-t flex divide-x p-2 hover:bg-yellow-50"
-        :key="result.id"
         v-for="result in results"
       >
         <span class="flex-1 p-2 pl-0">
-          <nuxt-link :to="'/hotspot/' + result.name">
-            <span class="">{{ result.name | capitalize }}</span>
+          <nuxt-link :to="'/hotspot/' + result.city_id">
+            <span class=""
+              ><template v-if="result.long_city"
+                >{{ result.long_city }},</template
+              >{{ result.short_state }}
+            </span>
             <div class="flex items-start justify-start">
               <span
                 class="
@@ -30,17 +30,16 @@
                   h-auto
                 "
               >
-                <flag :country="result.geocode.short_country" /> </span
-              ><span class="text-xs text-gray-600">
-                {{ result.geocode.long_street }},{{ result.geocode.long_city }},
-                {{ result.geocode.long_country }}</span
-              >
+                <flag :country="result.short_country" />
+              </span>
             </div>
           </nuxt-link>
         </span>
-        <span class="p-2 w-32 text-center text-sm"> test </span>
-        <span class="p-2 w-32 text-center text-sm"> test </span>
-        <span class="p-2 w-32 text-center text-sm"> test </span>
+
+        <span class="p-2 w-32 text-center">
+          {{ result.online_count }}
+        </span>
+        <span class="p-2 w-32 text-center"> {{ result.offline_count }}</span>
       </div>
     </div>
   </div>
@@ -66,7 +65,7 @@ export default {
   },
   created() {
     this.$axios
-      .get('https://api.helium.io/v1/cities/' + this.city_id + '/hotspots')
+      .get('https://api.helium.io/v1/cities?search=Turkey')
       .then((response) => {
         this.results = response.data.data
       })

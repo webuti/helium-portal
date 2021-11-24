@@ -38,13 +38,16 @@
             </div>
           </nuxt-link>
         </span>
+
+        <span class="p-2 w-32 text-center text-sm"> </span>
+        <span class="p-2 w-32 text-center text-sm"> </span>
         <span class="p-2 w-32 text-center text-sm" v-if="rewards">
           <template v-if="rewards[result.address]">
-            {{ rewards[result.address].total }}</template
+            {{
+              rewards[result.address].reduce((a, b) => a + b.total, 0)
+            }}</template
           >
         </span>
-        <span class="p-2 w-32 text-center text-sm"> test </span>
-        <span class="p-2 w-32 text-center text-sm"> test </span>
       </div>
     </div>
   </div>

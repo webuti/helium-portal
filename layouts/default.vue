@@ -15,7 +15,8 @@
       >
         <div class="flex justify-between">
           <Logo />
-          <span
+          <nuxt-link
+            to="/telegram"
             class="
               bg-hv-green-800
               text-hv-green-500
@@ -45,7 +46,7 @@
             </svg>
 
             Add HotSpot
-          </span>
+          </nuxt-link>
         </div>
       </div>
     </div>

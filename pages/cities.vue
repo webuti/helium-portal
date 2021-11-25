@@ -3,24 +3,57 @@
     <div>
       <h2 class="p-2 text-4xl">Cities</h2>
       <div class="flex text-xs hover:bg-yellow-50">
-        <span class="flex-1 p-2  md:w-32 flex items-center text-center">NAME</span>
+        <span class="flex-1 p-2 md:w-32 flex items-center text-center"
+          >NAME</span
+        >
         <span
           @click="setSort('count')"
-          class="p-2  w-20 md:w-32 flex items-center text-center"
+          class="
+            p-2
+            w-20
+            cursor-pointer
+            md:w-32
+            flex
+            justify-center
+            items-center
+            text-center
+          "
           ><span>COUNT</span>
           <sort-icon v-if="sort.key == 'count'" :statu="sort.type"
         /></span>
 
         <span
           @click="setSort('rewards_7')"
-          class="p-2 w-20 md:w-32 flex items-center text-center"
-          ><span>TOTAL 7D</span>
+          class="
+            p-2
+            w-20
+            cursor-pointer
+            md:w-32
+            flex
+            justify-center
+            items-center
+            text-center
+            space-x-2
+          "
+        >
+          <span class="hidden md:block"> REWARD </span><span> 7D</span>
           <sort-icon v-if="sort.key == 'rewards_7'" :statu="sort.type"
         /></span>
         <span
           @click="setSort('rewards_30')"
-          class="p-2  w-20 md:w-32 flex items-center text-center"
-          ><span>TOTAL 30D</span>
+          class="
+            p-2
+            w-20
+            cursor-pointer
+            md:w-32
+            flex
+            justify-center
+            items-center
+            text-center
+            space-x-2
+          "
+        >
+          <span class="hidden w-20 md:block"> REWARD </span><span> 30D</span>
           <sort-icon v-if="sort.key == 'rewards_30'" :statu="sort.type"
         /></span>
       </div>
@@ -50,8 +83,12 @@
           </nuxt-link>
         </span>
         <span class="p-2 w-20 md:w-32 text-center"> {{ key.count }}</span>
-        <span class="p-2 w-20 md:w-32 text-center"> {{ key.rewards_7 | number }}</span>
-        <span class="p-2 w-20 md:w-32 text-center"> {{ key.rewards_30 | number }}</span>
+        <span class="p-2 w-20 md:w-32 text-center">
+          {{ key.rewards_7 | number }}</span
+        >
+        <span class="p-2 w-20 md:w-32 text-center">
+          {{ key.rewards_30 | number }}</span
+        >
       </div>
     </div>
   </div>

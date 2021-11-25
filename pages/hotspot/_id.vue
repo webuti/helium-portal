@@ -1,26 +1,53 @@
 <template>
   <div>
     <div>
+      <h2 class="p-2 text-4xl">{{ cityName }} Hotspots</h2>
       <div class="flex text-xs hover:bg-yellow-50">
         <span class="flex-1 p-2 flex items-center">NAME</span>
 
         <span
           @click="setSort('contact_status')"
-          class="p-2 md:w-32 flex items-center text-center"
+          class="
+            p-2
+            md:w-32
+            cursor-pointer
+            flex
+            items-center
+            justify-center
+            text-center
+          "
           ><span>CONTACT </span>
           <sort-icon v-if="sort.key == 'contact_status'" :statu="sort.type"
         /></span>
 
         <span
           @click="setSort('rewards_7')"
-          class="p-2 md:w-32 flex items-center text-center"
-          ><span>7D </span>
+          class="
+            p-2
+            md:w-32
+            cursor-pointer
+            space-x-2
+            flex
+            justify-center
+            items-center
+            text-center
+          "
+          ><span class="hidden md:block">REWARD </span><span> 7D </span>
           <sort-icon v-if="sort.key == 'rewards_7'" :statu="sort.type"
         /></span>
         <span
           @click="setSort('rewards_30')"
-          class="p-2 md:w-32 flex items-center text-center"
-          ><span>30D </span>
+          class="
+            p-2
+            md:w-32
+            cursor-pointer
+            space-x-2
+            flex
+            justify-center
+            items-center
+            text-center
+          "
+          ><span class="hidden md:block">REWARD </span><span> 30D </span>
           <sort-icon v-if="sort.key == 'rewards_30'" :statu="sort.type"
         /></span>
       </div>
@@ -102,6 +129,7 @@ export default {
   data() {
     return {
       results: [],
+      cityName: "",
       rewards: [],
       sort: {
         key: 'rewards_30',
@@ -167,7 +195,22 @@ export default {
       )
       .then((response) => {
         this.results = response.data
+        this.cityName = this.results[0].city
       })
+  },
+  head() {
+    return {
+      title: this.cityName + ' Helium Hotspots',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.cityName + ' Helium Hotspots',
+        },
+      ],
+    }
   },
 }
 </script>

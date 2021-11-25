@@ -146,7 +146,7 @@ export default {
       this.$root.$loading.start()
 
       this.$axios
-        .get('/api/cities.json')
+        .get('/cities.json')
         .then((response) => {
           this.results = response.data
           this.$root.$loading.finish()

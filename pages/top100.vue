@@ -141,7 +141,7 @@ export default {
     this.$nextTick(() => {
       this.$root.$loading.start()
       this.$axios
-        .get('/api/top100.json')
+        .get('/top100.json')
         .then((response) => {
           this.results = response.data
           this.cityName = this.results[0].city

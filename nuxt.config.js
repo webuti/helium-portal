@@ -21,12 +21,18 @@ export default {
   css: [],
   axios: {
     proxy: true,
+    baseURL: 'https://api.heliumportal.com', // Used as fallback if no runtime config is provided
   },
 
-  proxy: {
-    '/api/': {
-      target: 'http://api.heliumportal.com/',
-      pathRewrite: { '^/api/': '' },
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: 'https://api.heliumportal.com',
+    },
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: 'https://api.heliumportal.com',
     },
   },
 
@@ -47,7 +53,6 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/proxy',
   ],
   googleFonts: {
     download: true,

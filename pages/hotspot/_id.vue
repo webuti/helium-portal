@@ -193,14 +193,12 @@ export default {
     },
   },
   created() {
-     this.$axios
-        .get(
-          '/api/city/' + this.$route.params.id + '.json'
-        )
-        .then((response) => {
-          this.results = response.data
-          this.cityName = this.results[0].city 
-        })
+    this.$axios
+      .get('/city/' + this.$route.params.id + '.json')
+      .then((response) => {
+        this.results = response.data
+        this.cityName = this.results[0].city
+      })
   },
   head() {
     return {

@@ -4,7 +4,6 @@
     <div class="text-gray-600 font-light">
       Bu ekrandan cihazınızla telegram hesabınızı eşleyebilirsiniz.Eşleşme
       sonrasında diğer cihaz sahiplerine iletişim talebi gönderebileceksiniz.<br />
-      Aynı şekilde sizede iletişim talepleri gelecek.<br />
       Başka bir cihaza iletişim talebi göndermek için telegram botundayken
       <b class="text-gray-700">send cihaz-adi</b> yazarak iletişim talebi
       gönderebilirsiniz. <br />

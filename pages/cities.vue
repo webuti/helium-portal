@@ -59,7 +59,7 @@
         /></span>
       </div>
 
-     <loading v-if="!sortedArray" />
+      <loading v-if="!sortedArray" />
       <div
         class="hotspots border-t flex divide-x p-2 hover:bg-yellow-50"
         v-for="(key, value) in sortedArray"
@@ -141,12 +141,17 @@ export default {
       return number.toFixed(2)
     },
   },
-  created() {
-    this.$axios
-      .get('https://api.heliumportal.com/cities.json')
-      .then((response) => {
-        this.results = response.data
-      })
+  mounted() {
+    this.$nextTick(() => {
+      this.$root.$loading.start()
+
+      this.$axios
+        .get('https://api.heliumportal.com/cities.json')
+        .then((response) => {
+          this.results = response.data
+          this.$root.$loading.finish()
+        })
+    })
   },
 }
 </script>

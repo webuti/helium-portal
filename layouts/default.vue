@@ -66,6 +66,7 @@
           <Nuxt />
         </div>
       </div>
+      <div class="h-24"></div>
 
       <section
         id="bottom-navigation"
@@ -88,7 +89,7 @@
             <span class="flex flex-col items-center p-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8 inline-block mb-1"
+                class="h-6 w-6 inline-block mb-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -120,7 +121,7 @@
             <span class="flex flex-col items-center p-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8"
+                class="h-6 w-6 inline-block mb-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -152,7 +153,7 @@
             <span class="flex flex-col items-center p-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8"
+                class="h-6 w-6 inline-block mb-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -183,7 +184,7 @@
             <span class="flex flex-col items-center p-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8"
+                class="h-6 w-6 inline-block mb-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

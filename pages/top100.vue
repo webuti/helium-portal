@@ -3,25 +3,10 @@
     <div>
       <loading v-if="results.length == 0" />
       <div v-else>
-        <h2 class="p-2 text-4xl">TOP100 Hotspots</h2>
+        <h2 class="p-2 text-4xl">TOP 100 Hotspots</h2>
         <div class="flex text-xs hover:bg-yellow-50">
           <span class="flex-1 p-2 flex items-center">NAME</span>
 
-          <span
-            @click="setSort('rewards_7')"
-            class="
-              p-2
-              md:w-32
-              cursor-pointer
-              space-x-2
-              flex
-              justify-center
-              items-center
-              text-center
-            "
-            ><span class="hidden md:block">REWARD </span><span> 7D </span>
-            <sort-icon v-if="sort.key == 'rewards_7'" :statu="sort.type"
-          /></span>
           <span
             @click="setSort('rewards_30')"
             class="
@@ -42,37 +27,41 @@
         <div
           class="hotspots border-t flex divide-x p-2 hover:bg-yellow-50"
           :key="result.id"
-          v-for="result in sortedArray"
+          v-for="(result, index) in sortedArray"
         >
           <span class="flex-1 p-2 pl-0">
             <a
               target="_blank"
               :href="'https://explorer.helium.com/hotspots/' + result.address"
+              class="flex"
             >
-              <span class="">{{ result.name }}</span>
+              <span class="p-2 text-2xl mr-2">
+                {{ index + 1 }}
+              </span>
 
-              <div class="flex items-start justify-start">
-                <span
-                  class="
-                    flex flex-row
-                    items-center
-                    justify-start
-                    mr-1.5
-                    w-3
-                    h-auto
-                    space-x-2
-                  "
-                >
-                  <flag country="TR" />
-                  <span class="text-sm">{{ result.city }}</span>
-                </span>
-              </div>
+              <span>
+                <span class="">{{ result.name }}</span>
+
+                <div class="flex items-start justify-start">
+                  <span
+                    class="
+                      flex flex-row
+                      items-center
+                      justify-start
+                      mr-1.5
+                      w-3
+                      h-auto
+                      space-x-2
+                    "
+                  >
+                    <flag country="TR" />
+                    <span class="text-sm">{{ result.city }}</span>
+                  </span>
+                </div></span
+              >
             </a>
           </span>
 
-          <span class="p-2 md:w-32 text-center text-sm">
-            {{ result.rewards_7 | number }}</span
-          >
           <span class="p-2 md:w-32 text-center text-sm">
             {{ result.rewards_30 | number }}</span
           >
@@ -140,13 +129,11 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.$root.$loading.start()
-      this.$axios
-        .get('/top100.json')
-        .then((response) => {
-          this.results = response.data
-          this.cityName = this.results[0].city
-          this.$root.$loading.finish()
-        })
+      this.$axios.get('/top100.json').then((response) => {
+        this.results = response.data
+        this.cityName = this.results[0].city
+        this.$root.$loading.finish()
+      })
     })
   },
   head() {

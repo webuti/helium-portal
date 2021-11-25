@@ -146,7 +146,7 @@ export default {
       this.$root.$loading.start()
 
       this.$axios
-        .get('https://api.heliumportal.com/cities.json')
+        .get('/api/cities.json')
         .then((response) => {
           this.results = response.data
           this.$root.$loading.finish()

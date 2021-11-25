@@ -188,14 +188,7 @@ export default {
   },
   methods: {
     submit() {
-      this.$strapi
-        .login({
-          identifier: this.form.email,
-          password: this.form.password,
-        })
-        .then((e) => {
-          console.log(e, 'e')
-        })
+    
     },
   },
 }

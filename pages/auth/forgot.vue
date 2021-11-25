@@ -119,13 +119,7 @@ export default {
   },
   methods: {
     submit() {
-      this.$strapi
-        .forgotPassword({
-          email: this.form.email,
-        })
-        .then((e) => {
-          console.log(e, 'e')
-        })
+     
     },
   },
 }

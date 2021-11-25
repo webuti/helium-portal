@@ -263,17 +263,7 @@ export default {
     }
   },
   methods: {
-    submit() {
-      this.$strapi
-        .register({
-          email: this.form.email,
-          username: this.form.email,
-          password: this.form.password,
-        })
-        .then((e) => {
-          console.log(e, 'e')
-        })
-    },
+    submit() {},
   },
 }
 </script>

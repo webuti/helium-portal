@@ -193,19 +193,14 @@ export default {
     },
   },
   created() {
-    this.$nextTick(() => {
-      this.$root.$loading.start()
-
-      this.$axios
+     this.$axios
         .get(
-          'https://api.heliumportal.com/city/' + this.$route.params.id + '.json'
+          '/api/city/' + this.$route.params.id + '.json'
         )
         .then((response) => {
           this.results = response.data
-          this.cityName = this.results[0].city
-          this.$root.$loading.finish()
+          this.cityName = this.results[0].city 
         })
-    })
   },
   head() {
     return {

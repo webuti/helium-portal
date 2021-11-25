@@ -2,6 +2,7 @@
   <div>
     <div>
       <h2 class="p-2 text-4xl">Cities</h2>
+
       <div class="flex text-xs hover:bg-yellow-50">
         <span class="flex-1 p-2 md:w-32 flex items-center text-center"
           >NAME</span
@@ -58,6 +59,7 @@
         /></span>
       </div>
 
+     <loading v-if="!sortedArray" />
       <div
         class="hotspots border-t flex divide-x p-2 hover:bg-yellow-50"
         v-for="(key, value) in sortedArray"
@@ -96,6 +98,7 @@
 
 <script>
 import Flag from '../components/Flag.vue'
+import Loading from '../components/Loading.vue'
 import SortIcon from '../components/SortIcon.vue'
 export default {
   data() {

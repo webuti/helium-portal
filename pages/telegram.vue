@@ -1,8 +1,26 @@
 <template>
   <div>
-    <form @submit.prevent="getData()">
-      <Logo />
+    <h2 class="p-2 px-0 text-4xl">Telegram Verify</h2>
+    <div class="text-gray-600 font-light">
+      <h2>Neden ?</h2>
+      Bu ekrandan cihazınızla telegram hesabınızı eşleyebilirsiniz.Eşleşme
+      sonrasında diğer cihaz sahiplerine iletişim talebi gönderebileceksiniz.<br />
+      Aynı şekilde sizede iletişim talepleri gelecek.<br />
+      Başka bir cihaza iletişim talebi göndermek için telegram botundayken
+      <b class="text-gray-700">send cihaz-adi</b> yazarak iletişim talebi
+      gönderebilirsiniz. <br />
+      örnek :
+      <b class="text-gray-700">send massive-khaki-moth</b>
 
+      <hr />
+      <span class="mt-10 text-gray-600">
+        <h2>Nasıl ?</h2>
+        Eşlemeyi başlatmak için aşağıdaki name kısımından cihazınızı bulup seçin
+        ve telegram verify butonuna tıklayın.</span
+      >
+    </div>
+
+    <form @submit.prevent="getData()">
       <div class="block my-5">
         <label class="block">Name</label>
         <input

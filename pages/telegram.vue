@@ -2,7 +2,6 @@
   <div>
     <h2 class="p-2 px-0 text-4xl">Telegram Verify</h2>
     <div class="text-gray-600 font-light">
-      <h2>Neden ?</h2>
       Bu ekrandan cihazınızla telegram hesabınızı eşleyebilirsiniz.Eşleşme
       sonrasında diğer cihaz sahiplerine iletişim talebi gönderebileceksiniz.<br />
       Aynı şekilde sizede iletişim talepleri gelecek.<br />
@@ -14,7 +13,6 @@
 
       <hr />
       <span class="mt-10 text-gray-600">
-        <h2>Nasıl ?</h2>
         Eşlemeyi başlatmak için aşağıdaki name kısımından cihazınızı bulup seçin
         ve telegram verify butonuna tıklayın.</span
       >

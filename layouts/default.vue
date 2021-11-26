@@ -2,7 +2,7 @@
   <div>
     <div class="w-full h-screen">
       <div>
-        <div class="bg-hv-green-500">
+        <div style="background: url('/assets/img/bg-heliumportal.jpg')">
           <div
             class="
               px-4
@@ -13,41 +13,49 @@
               lg:max-w-screen-xl
               md:px-24
               lg:px-8
+              backdrop-filter backdrop-blur-sm
+              md:backdrop-blur-md
             "
           >
             <div class="flex justify-between">
               <Logo />
-              <nuxt-link
-                to="/telegram"
-                class="
-                  bg-hv-green-800
-                  px-3
-                  py-1
-                  text-xs
-                  space-y-2
-                  flex
-                  items-center
-                  rounded-full
-                  text-center text-white
-                "
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="{2}"
-                    d="M12 4v16m8-8H4"
-                  />
-                </svg>
+              <span class="flex items-center justify-center space-x-2">
+                <nuxt-link class="text-white text-sm" to="/hnt-converter">
+                  <span> HNT ${{ usdPrice }}</span>
+                </nuxt-link>
 
-                Add HotSpot
-              </nuxt-link>
+                <nuxt-link
+                  to="/telegram"
+                  class="
+                    bg-hv-green-800
+                    px-3
+                    py-1
+                    text-xs
+                    space-y-2
+                    flex
+                    items-center
+                    rounded-full
+                    text-center text-white
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="{2}"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+
+                  Add HotSpot
+                </nuxt-link>
+              </span>
             </div>
           </div>
         </div>
@@ -210,6 +218,18 @@
 import Navbar from '../components/Navbar.vue'
 export default {
   components: { Navbar },
+  data() {
+    return {
+      usdPrice: 0,
+    }
+  },
+  mounted() {
+    this.$axios
+      .get('https://api.coingecko.com/api/v3/coins/helium')
+      .then((e) => {
+        this.usdPrice = e.data.market_data.current_price.usd
+      })
+  },
 }
 </script>
 

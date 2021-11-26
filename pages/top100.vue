@@ -48,14 +48,73 @@
                       flex flex-row
                       items-center
                       justify-start
-                      mr-1.5
-                      w-3
+                      mr-1.5 
+                      mt-2
                       h-auto
                       space-x-2
                     "
                   >
-                    <flag country="TR" />
+                    <flag class="w-3" country="TR" />
                     <span class="text-sm">{{ result.city }}</span>
+                    <span
+                      alt="Antenna"
+                      class="
+                        border
+                        flex flex-row
+                        items-center
+                        justify-center
+                        border-gray-300
+                        rounded-full
+                        text-xs
+                        px-2
+                      "
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="{2}"
+                          d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z"
+                        />
+                      </svg>
+                      <span> {{ result.gain/10 }} dBi</span>
+                    </span>
+                    <span
+                      alt="Height"
+                      class="
+                        border
+                        flex flex-row
+                        items-center
+                        justify-center
+                        border-gray-300
+                        rounded-full
+                        text-xs
+                        px-2
+                      "
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="{2}"
+                          d="M7 11l5-5m0 0l5 5m-5-5v12"
+                        />
+                      </svg>
+
+                      <span> {{ result.elevation }}m</span></span
+                    >
                   </span>
                 </div></span
               >
@@ -126,26 +185,22 @@ export default {
       return parseFloat(number).toFixed(2)
     },
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.$root.$loading.start()
-      this.$axios.get('/top100.json').then((response) => {
-        this.results = response.data
-        this.cityName = this.results[0].city
-        this.$root.$loading.finish()
-      })
-    })
+
+  async asyncData({ params, $http }) {
+    const results = await $http.$get('https://api.heliumportal.com/top100.json')
+    return { results: results }
   },
+
   head() {
     return {
-      title: this.cityName + ' Helium Hotspots',
+      title: 'Top 100 Helium Hotspots',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           hid: 'description',
           name: 'description',
-          content: this.cityName + ' Helium Hotspots',
+          content: 'Top 100 Helium Hotspots',
         },
       ],
     }

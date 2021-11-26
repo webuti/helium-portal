@@ -75,7 +75,6 @@
                   items-center
                   justify-start
                   mr-1.5
-                  w-3
                   h-auto
                 "
               >
@@ -84,13 +83,45 @@
             </div>
           </nuxt-link>
         </span>
-        <span class="p-2 w-20 md:w-32 text-center"> {{ key.count }}</span>
-        <span class="p-2 w-20 md:w-32 text-center">
-          {{ key.rewards_7 | number }}</span
+        <span
+          class="p-2 w-12 md:w-32 text-center flex justify-center items-center"
         >
-        <span class="p-2 w-20 md:w-32 text-center">
-          {{ key.rewards_30 | number }}</span
+          {{ key.count }}</span
         >
+        <span
+          class="
+            p-2
+            w-20
+            md:w-32
+            text-center
+            flex flex-col
+            md:flex-row
+            text-sm
+            md:space-x-2
+            justify-center
+            items-center
+          "
+        >
+          <span>{{ key.rewards_7 | number }} </span>
+          <span class="text-gray-500">HNT</span>
+        </span>
+        <span
+          class="
+            p-2
+            w-20
+            md:w-32
+            text-center
+            flex flex-col
+            md:flex-row
+            text-sm
+            md:space-x-2
+            justify-center
+            items-center
+          "
+        >
+          <span>{{ key.rewards_30 | number }} </span>
+          <span class="text-gray-500">HNT</span>
+        </span>
       </div>
     </div>
   </div>
@@ -141,17 +172,10 @@ export default {
       return number.toFixed(2)
     },
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.$root.$loading.start()
 
-      this.$axios
-        .get('/cities.json')
-        .then((response) => {
-          this.results = response.data
-          this.$root.$loading.finish()
-        })
-    })
+  async asyncData({ params, $http }) {
+    const results = await $http.$get('https://api.heliumportal.com/cities.json')
+    return { results: results }
   },
 }
 </script>

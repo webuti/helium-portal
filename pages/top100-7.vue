@@ -1,6 +1,6 @@
 <template>
   <div>
-    <top-list :results="results" day="30" />
+    <top-list :results="results" day="7" />
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   components: { TopList },
   async asyncData({ params, $http }) {
     const results = await $http.$get(
-      'https://api.heliumportal.com/top100-30.json'
+      'https://api.heliumportal.com/top100-7.json'
     )
     return { results: results }
   },

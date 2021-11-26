@@ -61,6 +61,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/http',
     '@nuxtjs/google-adsense',
+    'cookie-universal-nuxt',
   ],
   googleFonts: {
     download: true,

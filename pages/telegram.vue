@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="p-2 px-0 text-4xl">Telegram Verify</h2>
+    <h2 class="p-2 px-0 text-4xl">Telegram Verification</h2>
     <div class="text-gray-600 font-light">
       Bu ekrandan cihazınızla telegram hesabınızı eşleyebilirsiniz.Eşleşme
       sonrasında diğer cihaz sahiplerine iletişim talebi gönderebileceksiniz.<br />

@@ -3,12 +3,64 @@
     <div>
       <loading v-if="results.length == 0" />
       <div v-else>
-        <h2 class="p-2 text-4xl">{{ cityName }} Hotspots</h2>
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <h2 class="p-2 pl-0 flex-1 text-4xl">{{ cityName }} Hotspots</h2>
+          <span class="flex flex-col justify-center items-center">
+            <span class="flex w-full items-center justify-between">
+              <input
+                type="text"
+                v-model="search"
+                placeholder="Search hotspot"
+                class="
+                  bg-gray-200
+                  text-sm
+                  p-2
+                  w-full
+                  text-gray-800
+                  placeholder-gray-800
+                  rounded-full
+                "
+                style="text-indent: 24px"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 absolute ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="{2}"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </span>
+
+            <span class="flex text-xs space-x-2 py-5 text-gray-600 font-light">
+              <label>Rewards Periods:</label>
+              <label
+                v-for="(rcinput, index) in rewardsDays"
+                class="flex justify-center items-center space-x-1"
+              >
+                <span>{{ rcinput.name }}</span>
+                <input
+                  class="text-hv-green-800 border border-gray-300 rounded-full"
+                  type="checkbox"
+                  v-model="activeRewardsDays"
+                  :value="index"
+                />
+              </label>
+            </span>
+          </span>
+        </div>
         <div class="flex text-xs hover:bg-yellow-50">
           <span class="flex-1 p-2 flex items-center">NAME</span>
 
           <span
-            @click="setSort('rewards_7')"
+            v-for="arewards in activeRewardsDays"
+            @click="setSort(rewardsDays[arewards].key)"
             class="
               p-2
               md:w-32
@@ -19,39 +71,11 @@
               items-center
               text-center
             "
-            ><span class="hidden md:block">REWARD </span><span> 7D </span>
-            <sort-icon v-if="sort.key == 'rewards_7'" :statu="sort.type"
-          /></span>
-          <span
-            @click="setSort('rewards_30')"
-            class="
-              p-2
-              md:w-32
-              cursor-pointer
-              space-x-2
-              flex
-              justify-center
-              items-center
-              text-center
-            "
-            ><span class="hidden md:block">REWARD </span><span> 30D </span>
+            ><span class="hidden md:block">REWARD </span
+            ><span> {{ rewardsDays[arewards].name }} </span>
             <sort-icon
-              v-if="sort.key == 'rewards_30'"
-              :statu="sort.type" /></span
-          ><span
-            @click="setSort('rewards_60')"
-            class="
-              p-2
-              md:w-32
-              cursor-pointer
-              space-x-2
-              flex
-              justify-center
-              items-center
-              text-center
-            "
-            ><span class="hidden md:block">REWARD </span><span> 60D </span>
-            <sort-icon v-if="sort.key == 'rewards_60'" :statu="sort.type"
+              v-if="sort.key == rewardsDays[arewards].key"
+              :statu="sort.type"
           /></span>
         </div>
 
@@ -167,7 +191,9 @@
                             d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
                           />
                         </svg>
-                        <span class="w-28">Telegram Verified</span>
+                        <span class="w-28 hidden md:block"
+                          >Telegram Verified</span
+                        >
                       </div></span
                     >
                   </span>
@@ -177,6 +203,7 @@
           </span>
 
           <span
+            v-for="arewards in activeRewardsDays"
             class="
               p-2
               w-12
@@ -189,41 +216,7 @@
               items-center
             "
           >
-            <span>{{ result.rewards_7 | number }} </span>
-            <span class="text-gray-500">HNT</span>
-          </span>
-
-          <span
-            class="
-              p-2
-              w-12
-              md:w-32
-              text-center
-              flex flex-col
-              md:flex-row md:space-x-2
-              text-sm
-              justify-center
-              items-center
-            "
-          >
-            <span>{{ result.rewards_30 | number }} </span>
-            <span class="text-gray-500">HNT</span>
-          </span>
-          <span
-            class="
-              p-2
-              w-12
-              md:w-32
-              text-center
-              flex flex-col
-              md:flex-row
-              text-sm
-              md:space-x-2
-              justify-center
-              items-center
-            "
-          >
-            <span>{{ result.rewards_60 | number }} </span>
+            <span>{{ result[rewardsDays[arewards].key] | number }} </span>
             <span class="text-gray-500">HNT</span>
           </span>
         </div>
@@ -241,7 +234,15 @@ export default {
     return {
       results: [],
       cityName: '',
+      search: '',
       rewards: [],
+      rewardsDays: [
+        { name: '24H', key: 'rewards_1' },
+        { name: '7D', key: 'rewards_7' },
+        { name: '30D', key: 'rewards_30' },
+        { name: '60D', key: 'rewards_60' },
+      ],
+      activeRewardsDays: [1,2],
       sort: {
         key: 'rewards_30',
         type: true,
@@ -251,13 +252,24 @@ export default {
 
   computed: {
     sortedArray() {
-      return this.results.sort((a, b) => {
+      let results = this.results.sort((a, b) => {
         if (this.sort.type) {
           return b[this.sort.key] - a[this.sort.key]
         } else {
           return a[this.sort.key] - b[this.sort.key]
         }
       })
+
+      if (this.search) {
+        return results.filter((item) => {
+          return this.search
+            .toLowerCase()
+            .split(' ')
+            .every((v) => item.name.toLowerCase().includes(v))
+        })
+      } else {
+        return results
+      }
     },
   },
   methods: {

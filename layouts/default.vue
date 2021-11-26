@@ -19,42 +19,93 @@
           >
             <div class="flex justify-between">
               <Logo />
-              <span class="flex items-center justify-center space-x-2">
-                <nuxt-link class="text-white text-sm" to="/hnt-converter">
-                  <span> HNT ${{ usdPrice }}</span>
-                </nuxt-link>
 
-                <nuxt-link
-                  to="/telegram"
-                  class="
-                    bg-hv-green-800
-                    px-3
-                    py-1
-                    text-xs
-                    flex
-                    items-center
-                    rounded-full
-                    text-center text-white
-                    space-x-2
-                  "
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+              <span class="flex flex-col justify-between space-y-2 items-end">
+                <span class="-mt-4">
+                  <span @click="localeShow = !localeShow" v-if="!localeShow">
+                    <span v-if="$i18n.locale == 'en'">
+                      <flag country="us" />
+                    </span>
+                    <flag v-else :country="$i18n.locale" />
+                  </span>
+
+                  <div
+                    v-if="localeShow"
+                    class="
+                      flex flex-row
+                      bg-white
+                      rounded-full
+                      items-center
+                      space-x-1
+                      justify-center
+                      px-2
+                    "
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="{2}"
-                      d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
-                    />
-                  </svg>
+                    <svg
+                      @click="localeShow = false"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-3 w-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="{2}"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                    <nuxt-link
+                      class="text-white"
+                      v-for="locale in availableLocales"
+                      :key="locale.code"
+                      :to="switchLocalePath(locale.code)"
+                    >
+                      <flag :country="locale.flag" />
+                    </nuxt-link>
+                  </div>
+                </span>
+                <span class="flex items-center justify-center space-x-2">
+                  <nuxt-link
+                    class="text-white text-sm"
+                    :to="localePath('/hnt-converter')"
+                  >
+                    <span> HNT ${{ usdPrice }}</span>
+                  </nuxt-link>
 
-                  <span>Login</span>
-                </nuxt-link>
+                  <nuxt-link
+                    :to="localePath('/telegram')"
+                    class="
+                      bg-hv-green-800
+                      px-3
+                      py-1
+                      text-xs
+                      flex
+                      items-center
+                      rounded-full
+                      text-center text-white
+                      space-x-2
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="{2}"
+                        d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                      />
+                    </svg>
+
+                    <span>{{ $t('login') }}</span>
+                  </nuxt-link>
+                </span>
               </span>
             </div>
           </div>
@@ -92,7 +143,7 @@
               pt-2
               pb-1
             "
-            to="/cities"
+            :to="localePath('/cities')"
           >
             <span class="flex flex-col items-center p-2">
               <svg
@@ -124,7 +175,7 @@
               pt-2
               pb-1
             "
-            to="/top100"
+            :to="localePath('/top100')"
           >
             <span class="flex flex-col items-center p-2">
               <svg
@@ -156,7 +207,7 @@
               pt-2
               pb-1
             "
-            to="/telegram"
+            :to="localePath('/telegram')"
           >
             <span class="flex flex-col items-center p-2">
               <svg
@@ -187,7 +238,7 @@
               pt-2
               pb-1
             "
-            to="/about"
+            :to="localePath('/about')"
           >
             <span class="flex flex-col items-center p-2">
               <svg
@@ -215,13 +266,23 @@
 </template>
 
 <script>
+import Flag from '../components/Flag.vue'
 import Navbar from '../components/Navbar.vue'
 export default {
+  head() {
+    return this.$nuxtI18nHead()
+  },
   components: { Navbar },
   data() {
     return {
+      localeShow: 0,
       usdPrice: 0,
     }
+  },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale)
+    },
   },
   mounted() {
     this.$axios
@@ -233,5 +294,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

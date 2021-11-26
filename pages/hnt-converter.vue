@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="p-2 px-0 mb-5 text-4xl">HNT Converter</h2>
+    <h2 class="p-2 px-0 mb-5 text-4xl">{{$t('hntConverter')}}</h2>
     <form class="flex flex-col space-y-2">
       <input type="number" v-model="hnt" class="p-3 block border" />
 

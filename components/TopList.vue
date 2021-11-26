@@ -14,16 +14,19 @@
               mb-5
               md:mb-0 md:items-start
             "
-            ><h2 class="text-4xl m-0 p-0">TOP 100 Hotspots</h2>
-            <p class="text-gray-500 font-light">Last {{ day }} day</p>
+            ><h2 class="text-4xl m-0 p-0">{{ $t('top100Hotspots') }}</h2>
+            <p class="text-gray-500 font-light">
+              {{ $t('last') }} {{ day }} {{ $t('day') }}
+            </p>
 
             <span>
               <nuxt-link
                 class="border rounded-full px-2 text-xs text-gray-600 py-1 mr-1"
-                :to="'/top100-' + dayz"
+                :to="localePath('/top100-' + dayz)"
                 :class="{ 'bg-gray-50': day == dayz }"
                 v-for="dayz in [1, 7, 30, 60]"
-                >{{ dayz }} day</nuxt-link
+                :key="dayz"
+                >{{ dayz }} {{ $t('day') }}</nuxt-link
               >
             </span>
           </span>
@@ -34,7 +37,7 @@
                 v-if="rewardOptions"
                 class="flex text-xs space-x-2 py-5 text-gray-600 font-light"
               >
-                <label>Rewards Periods:</label>
+                <label>{{ $t('rewardPeriods') }}</label>
                 <label
                   v-for="(rcinput, index) in rewardsDays"
                   class="flex justify-center items-center space-x-1"
@@ -57,7 +60,7 @@
                 <input
                   type="text"
                   v-model="search"
-                  placeholder="Search hotspot"
+                  :placeholder="$t('searchHotspot')"
                   class="
                     bg-gray-200
                     text-sm
@@ -111,7 +114,7 @@
         </div>
 
         <div class="flex text-xs hover:bg-yellow-50">
-          <span class="flex-1 p-2 flex items-center">NAME</span>
+          <span class="flex-1 p-2 flex items-center">{{ $t('name') }}</span>
 
           <span
             v-for="arewards in activeRewardsDays"
@@ -126,7 +129,7 @@
               items-center
               text-center
             "
-            ><span class="hidden md:block">REWARD </span
+            ><span class="hidden md:block">{{ $t('reward') }} </span
             ><span> {{ rewardsDays[arewards].name }} </span>
             <sort-icon
               v-if="sort.key == rewardsDays[arewards].key"
@@ -252,7 +255,7 @@
       </div>
     </div>
   </div>
-</template> 
+</template>
 
 <script>
 import Flag from './Flag.vue'
@@ -264,13 +267,13 @@ export default {
     return {
       cityName: '',
       rewards: [],
-      rewardOptions:false,
+      rewardOptions: false,
       search: '',
       rewardsDays: [
-        { name: '24H', key: 'rewards_1' },
-        { name: '7D', key: 'rewards_7' },
-        { name: '30D', key: 'rewards_30' },
-        { name: '60D', key: 'rewards_60' },
+        { name: '24' + this.$t('h'), key: 'rewards_1' },
+        { name: '7' + this.$t('d'), key: 'rewards_7' },
+        { name: '30' + this.$t('d'), key: 'rewards_30' },
+        { name: '60' + this.$t('d'), key: 'rewards_60' },
       ],
       activeRewardsDays: [2],
 
@@ -346,14 +349,14 @@ export default {
   created() {},
   head() {
     return {
-      title: 'Top 100 Helium Hotspots',
+      title: this.$t('top100Helium'),
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           hid: 'description',
           name: 'description',
-          content: 'Top 100 Helium Hotspots',
+          content: this.$t('top100Helium'),
         },
       ],
     }
@@ -361,6 +364,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
- 
+<style></style>

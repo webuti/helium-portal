@@ -62,7 +62,49 @@ export default {
     '@nuxt/http',
     '@nuxtjs/google-adsense',
     'cookie-universal-nuxt',
+    '@nuxtjs/i18n',
   ],
+
+  i18n: {
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root', // recommended
+    },
+    locales: [
+      {
+        flag: 'us',
+        code: 'en',
+        dir: 'ltr',
+        file: 'en-US.js',
+        name: 'English',
+      },
+      {
+        flag: 'de',
+        code: 'de',
+        dir: 'ltr',
+        file: 'de-DE.js',
+        name: 'Deutsch',
+      },
+      {
+        flag: 'tr',
+        code: 'tr',
+        dir: 'ltr',
+        file: 'tr-TR.js',
+        name: 'Türkçe',
+      },
+      {
+        flag: 'ar',
+        code: 'ar',
+        file: 'ar-AR.js',
+        name: 'عربي',
+        dir: 'rtl',
+      },
+    ],
+    lazy: true,
+    langDir: 'lang/',
+    defaultLocale: 'en',
+  },
   googleFonts: {
     download: true,
     families: {

@@ -1,29 +1,17 @@
 <template>
   <div>
-    <h2 class="p-2 px-0 text-4xl">Telegram Verification</h2>
+    <h2 class="p-2 px-0 text-4xl"> {{ $t('telegramVerification') }}</h2>
     <div class="text-gray-600 font-light">
-      Bu ekrandan cihazınızla telegram hesabınızı eşleyebilirsiniz.Eşleşme
-      sonrasında diğer cihaz sahiplerine iletişim talebi gönderebileceksiniz.<br />
-      Başka bir cihaza iletişim talebi göndermek için telegram botundayken
-      <b class="text-gray-700">send cihaz-adi</b> yazarak iletişim talebi
-      gönderebilirsiniz. <br />
-      örnek :
-      <b class="text-gray-700">send massive-khaki-moth</b>
-
-      <hr />
-      <span class="mt-10 text-gray-600">
-        Eşlemeyi başlatmak için aşağıdaki name kısımından cihazınızı bulup seçin
-        ve telegram verify butonuna tıklayın.</span
-      >
+      {{ $t('telegramVerificationInfo') }}
     </div>
 
     <form @submit.prevent="getData()">
       <div class="block my-5">
-        <label class="block">Name</label>
+        <label class="block"> {{ $t('name') }}</label>
         <input
           v-model="name"
           type="text"
-          placeholder="Hotspot name search"
+          :placeholder="$t('searchHotspot')"
           class="border w-full shadow-sm p-2"
         />
       </div>
@@ -65,7 +53,7 @@
                 class="border flex items-center space-x-4 w-full shadow-sm p-2"
               >
                 <div><telegram /></div>
-                <div>Validate start click here</div>
+                <div> {{ $t('validateStart') }}</div>
               </div>
             </a>
           </div>
@@ -194,5 +182,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

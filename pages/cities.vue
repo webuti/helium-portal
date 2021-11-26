@@ -1,11 +1,11 @@
 <template>
   <div>
     <div>
-      <h2 class="p-2 text-4xl">Cities</h2>
+      <h2 class="p-2 text-4xl">{{ $t('cities') }}</h2>
 
       <div class="flex text-xs hover:bg-yellow-50">
         <span class="flex-1 p-2 md:w-32 flex items-center text-center"
-          >NAME</span
+          >{{ $t('name') }}</span
         >
         <span
           @click="setSort('count')"
@@ -19,7 +19,7 @@
             items-center
             text-center
           "
-          ><span>COUNT</span>
+          ><span>{{ $t('count') }}</span>
           <sort-icon v-if="sort.key == 'count'" :statu="sort.type"
         /></span>
 
@@ -37,7 +37,7 @@
             space-x-2
           "
         >
-          <span class="hidden md:block"> REWARD </span><span> 7D</span>
+          <span class="hidden md:block"> {{ $t('reward') }} </span><span> 7D</span>
           <sort-icon v-if="sort.key == 'rewards_7'" :statu="sort.type"
         /></span>
         <span
@@ -54,7 +54,7 @@
             space-x-2
           "
         >
-          <span class="hidden w-20 md:block"> REWARD </span><span> 30D</span>
+          <span class="hidden w-20 md:block"> {{ $t('reward') }} </span><span> 30D</span>
           <sort-icon v-if="sort.key == 'rewards_30'" :statu="sort.type"
         /></span>
       </div>
@@ -65,7 +65,7 @@
         v-for="(key, value) in sortedArray"
       >
         <span class="flex-1 p-2 pl-0">
-          <nuxt-link :to="'/hotspot/' + key.url">
+          <nuxt-link :to="localePath('/hotspot/' + key.url)">
             <span class="">{{ key.name }} </span>
             <div class="flex items-start justify-start">
               <span

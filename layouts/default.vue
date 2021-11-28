@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="font-sans">
     <div class="w-full h-screen">
       <div>
         <div style="background: url('/assets/img/bg-heliumportal.jpg')">
@@ -294,4 +294,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+* {
+  font-family:  'Inter';
+}
+</style>

@@ -2,49 +2,45 @@
   <div>
     <h2 class="p-2 px-0 mb-5 text-4xl">Exchange</h2>
 
-
-      <form
-        class="
-          flex
-          border
-          p-4
-          w-full
-          text-sm
-          rounded
-          shadow
-          items-center
-          space-x-2
-        "
-      >
-        <div class="flex flex-col">
-          <label>Model</label>
-          <input type="text" v-model="form.model" class="border p-2" />
-        </div>
-        <div class="flex flex-col">
-          <label>Şehir</label>
-          <input type="text" v-model="form.city" class="border p-2" />
-        </div>
-        <div class="flex flex-col">
-          <label>Fiyat</label>
-          <input type="number" v-model="form.price" class="border p-2" />
-        </div>
-        <div class="flex flex-col">
-          <label>
-            <input type="radio" v-model="form.type" checked value="1" /> ALIŞ
-          </label>
-          <label>
-            <input type="radio" v-model="form.type" value="2" /> SATIŞ
-          </label>
-        </div>
-        <div class="flex flex-col">
-          <button
-            type="submit"
-            class="bg-hv-green-500 text-md rounded-full px-2 text-white"
-          >
-            Gönder
-          </button>
-        </div>
-      </form>
+    <form
+      class="
+        flex
+        border
+        p-4
+        w-full
+        text-sm
+        rounded
+        shadow
+        items-center
+        space-x-2
+      "
+    >
+      <div class="flex flex-col">
+        <label>Model</label>
+        <input type="text" v-model="form.model" class="border p-2" />
+      </div>
+      <div class="flex flex-col">
+        <label>Şehir</label>
+        <input type="text" v-model="form.city" class="border p-2" />
+      </div>
+      <div class="flex flex-col">
+        <label>Fiyat</label>
+        <input type="number" v-model="form.price" class="border p-2" />
+      </div>
+      <div class="flex flex-col">
+        <label>Fiyat</label>
+        <input type="number" v-model="form.price" class="border p-2" />
+      </div>
+      
+      <div class="flex flex-row space-x-2">
+        <button type="submit" class="bg-hv-green-500 text-md px-2 text-white">
+          AL
+        </button>
+        <button type="submit" class="bg-hv-green-800 text-md px-2 text-white">
+          SAT
+        </button>
+      </div>
+    </form>
 
     <div class="flex">
       <div class="flex-1 border-r min-h-screen">

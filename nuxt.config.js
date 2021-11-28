@@ -94,7 +94,7 @@ export default {
         name: 'Türkçe',
       },
       {
-        flag: 'ar',
+        flag: 'sa',
         code: 'ar',
         file: 'ar-AR.js',
         name: 'عربي',
@@ -111,9 +111,6 @@ export default {
       Inter: true,
     },
   },
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

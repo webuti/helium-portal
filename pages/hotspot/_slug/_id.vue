@@ -259,8 +259,8 @@
 </template>
 
 <script>
-import Flag from '../../components/Flag.vue'
-import SortIcon from '../../components/SortIcon.vue'
+import Flag from '../../../components/Flag.vue'
+import SortIcon from '../../../components/SortIcon.vue'
 export default {
   components: { SortIcon },
   data() {
@@ -361,7 +361,7 @@ export default {
 
   async asyncData({ params, $http }) {
     const results = await $http.$get(
-      'https://api.heliumportal.com/city/' + params.id + '.json'
+      'https://api.heliumportal.com/turkey/city/' + params.id + '.json'
     )
     return { results: results, cityName: results[0].city }
   },

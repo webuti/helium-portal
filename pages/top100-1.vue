@@ -10,7 +10,7 @@ export default {
   components: { TopList },
   async asyncData({ params, $http }) {
     const results = await $http.$get(
-      'https://api.heliumportal.com/top100-1.json'
+      'https://api.heliumportal.com/turkey/top100-1.json'
     )
     return { results: results }
   },

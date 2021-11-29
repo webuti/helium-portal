@@ -68,7 +68,7 @@
       >
         <span class="flex-1 p-2 pl-0">
           <nuxt-link
-            :to="localePath('/hotspot/' + key.country + '/' + key.url)"
+            :to="localePath('/hotspots/' + key.country + '/' + key.url)"
           >
             <span class="">{{ key.name }} </span>
             <div class="flex items-start justify-start">

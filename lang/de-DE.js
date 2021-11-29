@@ -29,4 +29,5 @@ export default {
   du kannst erreichen
   Wenn du das Projekt unterstützen möchtest, mein Helium Wallet:`,
   hntConverter: 'HNT Konverter',
+  countries: 'Länder',
 }

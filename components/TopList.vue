@@ -22,7 +22,7 @@
             <span>
               <nuxt-link
                 class="border rounded-full px-2 text-xs text-gray-600 py-1 mr-1"
-                :to="localePath('/top100-' + dayz)"
+                :to="localePath('/top100/' + country + '/' + dayz)"
                 :class="{ 'bg-gray-50': day == dayz }"
                 v-for="dayz in [1, 7, 30, 60]"
                 :key="dayz"
@@ -167,7 +167,7 @@
                       space-x-2
                     "
                   >
-                    <flag class="w-3" country="TR" />
+                    <flag class="w-3" :country="result.flag" />
                     <span class="text-sm">{{ result.city }}</span>
                     <span
                       alt="Antenna"
@@ -262,7 +262,7 @@ import Flag from './Flag.vue'
 import SortIcon from './SortIcon.vue'
 export default {
   components: { SortIcon, Flag },
-  props: ['results', 'day'],
+  props: ['results', 'day', 'country'],
   data() {
     return {
       cityName: '',

@@ -10,7 +10,7 @@ export default {
   hotspots: 'Hotspots',
   reward: 'Reward',
   rewardPeriods: 'Reward Periods:',
-  searchHotspot: 'Reward',
+  searchHotspot: 'Search hotspot',
   telegramVerified: 'Telegram Verified',
   telegramVerification: 'Telegram Verification',
   about: 'About',
@@ -30,4 +30,5 @@ export default {
   you can reach.
   If you want to support the project, my helium wallet:`,
   hntConverter: 'HNT Converter',
+  countries: 'Countries',
 }

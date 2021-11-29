@@ -1,18 +1,32 @@
 <template>
   <div>
-    <top-list :results="results" day="1" />
+    <top-list :results="results" :day="day" :country="country" />
   </div>
 </template>
 
 <script>
-import TopList from '../components/TopList.vue'
+import TopList from '../../../components/TopList.vue'
 export default {
   components: { TopList },
+  data() {
+    return {
+      day: 30,
+      country: 'turkey',
+    }
+  },
   async asyncData({ params, $http }) {
+    if (!params.id) {
+      params.id = 30
+    }
+
     const results = await $http.$get(
-      'https://api.heliumportal.com/turkey/top100-1.json'
+      'https://api.heliumportal.com/' +
+        params.slug +
+        '/top100-' +
+        params.id +
+        '.json'
     )
-    return { results: results }
+    return { results: results, country: params.slug, day: params.id }
   },
 
   head() {

@@ -30,6 +30,8 @@ export default {
   ulaşabilirsiniz.
   Projeye destek olmak isterseniz helium cüzdanım:`,
   hntConverter: 'HNT Dönüştürücü',
+  countries:"Ülkeler",
+  
 }
 
 

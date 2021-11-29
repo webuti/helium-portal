@@ -82,7 +82,7 @@
                   h-auto
                 "
               >
-                <flag :country="'TR'" />
+                <flag :country="key.flag" />
               </span>
             </div>
           </nuxt-link>
@@ -140,6 +140,7 @@ import SortIcon from '../../components/SortIcon.vue'
 export default {
   data() {
     return {
+      countries: [],
       results: [],
       sort: {
         key: 'count',
@@ -179,11 +180,19 @@ export default {
     },
   },
 
-  async asyncData({ params, $http }) {
-    const results = await $http.$get(
-      'https://api.heliumportal.com/turkey/cities.json'
-    )
-    return { results: results }
+  mounted() {
+    this.$route.params.id
+    if (!this.$route.params.id) {
+      this.$route.params.id = 'turkey'
+    }
+
+    this.$axios
+      .get(
+        'https://api.heliumportal.com/' + this.$route.params.id + '/cities.json'
+      )
+      .then((response) => {
+        this.results = response.data
+      })
   },
 }
 </script>

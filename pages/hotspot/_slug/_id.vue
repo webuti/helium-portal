@@ -134,7 +134,7 @@
                     space-x-2
                   "
                 >
-                  <flag class="w-3" country="TR" />
+                  <flag class="w-3" :country="result.flag" />
                   <span
                     alt="Antenna"
                     class="
@@ -296,6 +296,19 @@ export default {
     if (this.$cookies.get('activeRewardsDays')) {
       this.activeRewardsDays = this.$cookies.get('activeRewardsDays')
     }
+
+    this.$axios
+      .get(
+        'https://api.heliumportal.com/' +
+          this.$route.params.slug +
+          '/city/' +
+          this.$route.params.id +
+          '.json'
+      )
+      .then((response) => {
+        this.results = response.data
+        this.cityName = this.results[0].city
+      })
   },
   computed: {
     sortedArray() {
@@ -331,18 +344,6 @@ export default {
           ' yazdığınızda iletişim talebiniz iletilecek'
       )
     },
-    getHntSum(hotspotAddress) {
-      this.$axios
-        .get(
-          'https://helium-api.stakejoy.com/v1/hotspots/' +
-            hotspotAddress +
-            '/rewards/sum?min_time=-30%20day&max_time=2021-11-24T14%3A40%3A32.474Z&bucket=day'
-        )
-        .then((response) => {
-          this.rewards[hotspotAddress] = response.data.data
-          this.$forceUpdate()
-        })
-    },
   },
   filters: {
     capitalize: function (value) {
@@ -357,13 +358,6 @@ export default {
       }
       return parseFloat(number).toFixed(2)
     },
-  },
-
-  async asyncData({ params, $http }) {
-    const results = await $http.$get(
-      'https://api.heliumportal.com/turkey/city/' + params.id + '.json'
-    )
-    return { results: results, cityName: results[0].city }
   },
 
   head() {

@@ -1,7 +1,7 @@
 <template>
   <div class="mt-10">
     <div class="border rounded p-2 block my-5">
-      <nuxt-link :to="localePath('/cities')">
+      <nuxt-link :to="localePath('/countries')">
         <span class="flex space-x-2 items-center p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@
             />
           </svg>
 
-          <span>{{ $t('cities') }}</span>
+          <span>{{ $t('countries') }}</span>
         </span></nuxt-link
       >
     </div>

@@ -14,6 +14,7 @@ export default {
   telegramVerified: 'Telegram Verified',
   telegramVerification: 'Telegram Verification',
   about: 'About',
+  telegram:"Telegram",
   login: 'Login',
   count: 'Count',
   lastDay: 'Last 30 day',

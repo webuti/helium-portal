@@ -13,6 +13,7 @@ export default {
   searchHotspot: 'Arama',
   telegramVerification: 'Telegram Doğrulama',
   telegramVerified:"Doğrulanmış",
+  telegram:"Telegram",
   about: 'Hakkımda',
   login: 'Giriş',
   count: 'Sayı',
@@ -31,7 +32,7 @@ export default {
   Projeye destek olmak isterseniz helium cüzdanım:`,
   hntConverter: 'HNT Dönüştürücü',
   countries:"Ülkeler",
-  
+
 }
 
 

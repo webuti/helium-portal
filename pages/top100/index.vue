@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="w-full flex-1">
-      <top-list day="30" country="" :results="toplist" />
+      <top-list day="30" country="global" :results="toplist" />
     </div>
   </div>
 </template>

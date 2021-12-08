@@ -3,7 +3,7 @@ export default {
   cities: 'Cities',
   top100: 'Top 100',
   top100Hotspots: 'TOP 100 Hotspots',
-  top100Helium: 'En çok kazanan 100 Helium Hotspot',
+  top100Helium: 'TOP 100 Hotspots',
   day: 'day',
   last: 'Last',
   name: 'Name',

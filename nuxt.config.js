@@ -54,8 +54,6 @@ export default {
 
   'google-adsense': {
     id: 'ca-pub-8368900943090301',
-    onPageLoad: false,
-    pageLevelAds: false,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules

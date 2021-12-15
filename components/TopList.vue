@@ -313,7 +313,7 @@ export default {
       activeRewardsDays: [2],
 
       sort: {
-        key: 'rewards_30',
+        key: 'rewards_' + this.day,
         type: true,
       },
     }

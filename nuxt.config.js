@@ -1,7 +1,9 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  render: {
+    csp: false,
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Helium Portal |',

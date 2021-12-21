@@ -1,7 +1,11 @@
 <template>
   <div class="flex flex-col md:flex-row">
     <div class="p-2">
-      <div class="border rounded p-2 my-2" v-for="result in countries">
+      <div
+        class="border shadow-sm rounded p-2 my-2"
+        v-for="result in countries"
+        v-if="result.name"
+      >
         <nuxt-link :to="localePath('/top100/' + result.url + '/30')">
           <span class="flex space-x-2 items-center p-2">
             <flag :country="result.flag" />
@@ -34,5 +38,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

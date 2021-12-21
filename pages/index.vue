@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-10">
-    <div class="border rounded p-2 block my-5">
+  <div class="mt-10 uppercase  ">
+    <div class="border shadow-sm rounded p-2 block my-5">
       <nuxt-link :to="localePath('/countries')">
         <span class="flex space-x-2 items-center p-2">
           <svg
@@ -22,7 +22,7 @@
         </span></nuxt-link
       >
     </div>
-    <div class="border rounded p-2 block my-5">
+    <div class="shadow-sm border rounded p-2 block my-5">
       <nuxt-link :to="localePath('/top100')">
         <span class="flex space-x-2 items-center p-2">
           <svg
@@ -44,7 +44,7 @@
       >
     </div>
 
-    <div class="border rounded p-2 block my-5">
+    <div class="shadow-sm border rounded p-2 block my-5">
       <nuxt-link :to="localePath('/telegram')">
         <span class="flex space-x-2 items-center p-2">
           <svg
@@ -65,7 +65,7 @@
         </span></nuxt-link
       >
     </div>
-    <div class="border rounded p-2 block my-5">
+    <div class="shadow-sm border rounded p-2 block my-5">
       <nuxt-link :to="localePath('/hnt-converter')">
         <span class="flex space-x-2 items-center p-2">
           <svg
@@ -86,7 +86,7 @@
         </span></nuxt-link
       >
     </div>
-    <div class="border rounded p-2 text-gray-400 block my-5">
+    <div class="shadow-sm border rounded p-2 text-gray-400 block my-5">
       <nuxt-link :to="localePath('/about')">
         <span class="flex space-x-2 items-center p-2">
           <svg

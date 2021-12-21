@@ -3,13 +3,19 @@
     <div class="">
       <h2 class="p-2 text-4xl">{{ $t('countries') }}</h2>
 
-      <div class="border rounded p-2 block my-5" v-for="result in results">
-        <nuxt-link :to="localePath('/cities/' + result.url)">
-          <span class="flex space-x-2 items-center p-2">
-            <flag :country="result.flag" />
-            <span>{{ result.name }}</span>
-          </span>
-        </nuxt-link>
+      <div class="grid  grid-cols-2 mt-5 md:grid-cols-4 gap-2">
+        <div
+          class="border rounded p-2"
+          v-for="result in results"
+          v-if="result.name"
+        >
+          <nuxt-link :to="localePath('/cities/' + result.url)">
+            <span class="flex space-x-2 items-center p-2">
+              <flag :country="result.flag" />
+              <span>{{ result.name }}</span>
+            </span>
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
@@ -28,5 +34,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

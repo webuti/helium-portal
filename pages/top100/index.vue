@@ -16,6 +16,8 @@
     </div>
     <div class="w-full flex-1">
       <top-list day="30" country="global" :results="toplist" />
+
+      <adsbygoogle />
     </div>
   </div>
 </template>

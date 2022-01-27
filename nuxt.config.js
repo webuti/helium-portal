@@ -16,7 +16,35 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+
+    link: [
+      {
+        rel: 'preconnect',
+        href: 'https://adservice.google.com',
+        crossorigin: true,
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://pagead2.googlesyndication.com',
+        crossorigin: true,
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://tpc.googlesyndication.com',
+        crossorigin: true,
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://doubleclick.net',
+        crossorigin: true,
+      },
+      {
+        rel: 'preconnect',
+        href: 'googleads.g.doubleclick.net',
+        crossorigin: true,
+      },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    ],
   },
   loading: {
     color: 'blue',
@@ -56,6 +84,8 @@ export default {
 
   'google-adsense': {
     id: 'ca-pub-8368900943090301',
+    pageLevelAds: true,
+    overlayBottom: true,
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules

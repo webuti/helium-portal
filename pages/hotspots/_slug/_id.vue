@@ -123,116 +123,132 @@
               :href="'https://explorer.helium.com/hotspots/' + result.address"
             >
               <span class="">{{ result.name }}</span>
-              <div class="flex items-start justify-start">
+            </a>
+            <div class="flex items-start justify-start">
+              <span
+                class="
+                  flex flex-row
+                  items-center
+                  justify-center
+                  mr-1.5
+                  mt-2
+                  space-x-2
+                "
+              >
+                <flag class="w-3" :country="result.flag" />
                 <span
+                  alt="Antenna"
                   class="
+                    border
                     flex flex-row
                     items-center
                     justify-center
-                    mr-1.5
-                    mt-2
-                    space-x-2
+                    border-gray-300
+                    rounded-full
+                    text-xs
+                    px-2
                   "
                 >
-                  <flag class="w-3" :country="result.flag" />
-                  <span
-                    alt="Antenna"
-                    class="
-                      border
-                      flex flex-row
-                      items-center
-                      justify-center
-                      border-gray-300
-                      rounded-full
-                      text-xs
-                      px-2
-                    "
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="{2}"
-                        d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z"
-                      />
-                    </svg>
-                    <span> {{ result.gain / 10 }} dBi</span>
-                  </span>
-                  <span
-                    alt="Height"
-                    class="
-                      border
-                      flex flex-row
-                      items-center
-                      justify-center
-                      border-gray-300
-                      rounded-full
-                      text-xs
-                      px-2
-                    "
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="{2}"
-                        d="M7 11l5-5m0 0l5 5m-5-5v12"
-                      />
-                    </svg>
-
-                    <span> {{ result.elevation }}m</span></span
-                  >
-
-                  <span v-if="result.contact_status">
-                    <span @click="showTelegram(result.seo_url)"
-                      ><div
-                        class="
-                          text-hv-green-500
-                          border border-hv-green-500
-                          justify-center
-                          flex
-                          rounded-full
-                          items-center
-                          text-xs
-                          space-x
-                          px-1
-                        "
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="{2}"
-                            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                          />
-                        </svg>
-                        <span class="w-28 hidden md:block">{{
-                          $t('telegramVerified')
-                        }}</span>
-                      </div></span
-                    >
-                  </span>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="{2}"
+                      d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z"
+                    />
+                  </svg>
+                  <span> {{ result.gain / 10 }} dBi</span>
                 </span>
-              </div>
-            </a>
+                <span
+                  alt="Height"
+                  class="
+                    border
+                    flex flex-row
+                    items-center
+                    justify-center
+                    border-gray-300
+                    rounded-full
+                    text-xs
+                    px-2
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="{2}"
+                      d="M7 11l5-5m0 0l5 5m-5-5v12"
+                    />
+                  </svg>
+
+                  <span> {{ result.elevation }}m</span>
+                </span>
+                <span
+                  class="
+                    border
+                    flex flex-row
+                    items-center
+                    justify-center
+                    border-gray-300
+                    rounded-full
+                    text-xs
+                    cursor-pointer
+                    px-2
+                  "
+                  v-if="result.maker"
+                  @click="search = result.maker"
+                  >{{ result.maker }}</span
+                >
+
+                <span v-if="result.contact_status">
+                  <span @click="showTelegram(result.seo_url)"
+                    ><div
+                      class="
+                        text-hv-green-500
+                        border border-hv-green-500
+                        justify-center
+                        flex
+                        rounded-full
+                        items-center
+                        text-xs
+                        space-x
+                        px-1
+                      "
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="{2}"
+                          d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                        />
+                      </svg>
+                      <span class="w-28 hidden md:block">{{
+                        $t('telegramVerified')
+                      }}</span>
+                    </div></span
+                  >
+                </span>
+              </span>
+            </div>
           </span>
 
           <span
@@ -255,6 +271,8 @@
         </div>
       </div>
     </div>
+
+    <adsbygoogle />
   </div>
 </template>
 
@@ -325,7 +343,11 @@ export default {
           return this.search
             .toLowerCase()
             .split(' ')
-            .every((v) => item.name.toLowerCase().includes(v))
+            .every(
+              (v) =>
+                item.name.toLowerCase().includes(v) ||
+                item.maker.toLowerCase().includes(v)
+            )
         })
       } else {
         return results

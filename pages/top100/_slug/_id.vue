@@ -1,6 +1,8 @@
 <template>
   <div>
     <top-list :results="results" :day="day" :country="country" />
+
+    <adsbygoogle />
   </div>
 </template>
 

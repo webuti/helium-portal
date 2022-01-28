@@ -16,8 +16,6 @@
     </div>
     <div class="w-full flex-1">
       <top-list day="30" country="global" :results="toplist" />
-
-      <adsbygoogle />
     </div>
   </div>
 </template>
@@ -27,15 +25,23 @@ import Flag from '../../components/Flag.vue'
 import TopList from '../../components/TopList.vue'
 export default {
   components: { Flag, TopList },
-  async asyncData({ params, $http }) {
-    const toplist = await $http.$get(
-      'https://api.heliumportal.com/global/top100-30.json'
-    )
-
-    const results = await $http.$get(
-      'https://api.heliumportal.com/countries.json'
-    )
-    return { countries: results, toplist }
+  data() {
+    return {
+      countries: [],
+      toplist: [],
+    }
+  },
+  mounted() {
+    this.$axios
+      .get('https://api.heliumportal.com/global/top100-30.json')
+      .then((response) => {
+        this.toplist = response.data
+      })
+    this.$axios
+      .get('https://api.heliumportal.com/countries.json')
+      .then((response) => {
+        this.countries = response.data
+      })
   },
 }
 </script>

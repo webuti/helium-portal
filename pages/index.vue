@@ -108,6 +108,6 @@
         </span></nuxt-link
       >
     </div>
-    <adsbygoogle />
+    
   </div>
 </template>

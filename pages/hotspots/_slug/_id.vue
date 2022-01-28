@@ -272,7 +272,7 @@
       </div>
     </div>
 
-    <adsbygoogle />
+    
   </div>
 </template>
 

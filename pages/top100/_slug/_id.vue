@@ -1,8 +1,6 @@
 <template>
   <div>
-    <top-list :results="results" :day="day" :country="country" />
-
-    <adsbygoogle />
+    <top-list :results="results" :day="day" v-if="day" :country="country" />
   </div>
 </template>
 
@@ -12,23 +10,27 @@ export default {
   components: { TopList },
   data() {
     return {
-      day: 30,
+      day: false,
       country: 'turkey',
+      countries: [],
+      results: [],
     }
   },
-  async asyncData({ params, $http }) {
-    if (!params.id) {
-      params.id = 30
-    }
-
-    const results = await $http.$get(
-      'https://api.heliumportal.com/' +
-        params.slug +
-        '/top100-' +
-        params.id +
-        '.json'
-    )
-    return { results: results, country: params.slug, day: params.id }
+  mounted() {
+    this.$axios
+      .get(
+        'https://api.heliumportal.com/' +
+          this.$route.params.slug +
+          '/top100-' +
+          this.$route.params.id +
+          '.json'
+      )
+      .then((response) => {
+        this.results = []
+        this.results = response.data
+        this.day = this.$route.params.id
+        this.$forceUpdate()
+      })
   },
 
   head() {
@@ -48,5 +50,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

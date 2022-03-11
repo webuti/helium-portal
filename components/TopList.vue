@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div> 
+    <div>
       <loading v-if="results.length == 0" />
       <div v-else>
         <div class="flex flex-col md:flex-row justify-between items-center">
@@ -329,7 +329,7 @@ export default {
 
       sort: {
         key: 'rewards_' + this.day,
-        type: true,
+        type: false,
       },
     }
   },
@@ -343,9 +343,15 @@ export default {
   },
   mounted() {
     this.setSort('rewards_' + this.day)
-
     if (this.$cookies.get('activeRewardsDays')) {
       this.activeRewardsDays = this.$cookies.get('activeRewardsDays')
+    }
+    let activeDayIndex = Object.values(this.rewardsDays).findIndex(
+      (e) => e.key == this.sort.key
+    )
+
+    if (this.activeRewardsDays.findIndex((e) => e == activeDayIndex) === -1) {
+      this.activeRewardsDays.push(activeDayIndex);
     }
   },
 

@@ -84,7 +84,7 @@ export default {
 
   'google-adsense': {
     id: 'ca-pub-8368900943090301',
-    pageLevelAds: true,
+    pageLevelAds: false,
     overlayBottom: true,
   },
 

@@ -82,18 +82,11 @@ export default {
     '@nuxtjs/google-fonts',
   ],
 
-  'google-adsense': {
-    id: 'ca-pub-8368900943090301',
-    pageLevelAds: false,
-    overlayBottom: true,
-  },
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxt/http',
-    '@nuxtjs/google-adsense',
     'cookie-universal-nuxt',
     '@nuxtjs/i18n',
   ],

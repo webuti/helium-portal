@@ -108,6 +108,6 @@
         </span></nuxt-link
       >
     </div>
-    
+    <a href="https://1001catalogues.com/stores/Woolworths-catalogue">Woolworths catalogue starting wed</a>
   </div>
 </template>
